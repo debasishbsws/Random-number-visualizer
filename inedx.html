@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Number visulizer</title>
 </head>
 
 <body>
-    <form id="myForm">
+    <!-- <form id="myForm">
         <input type="file" id="csvFile" accept=".csv" />
         <br />
         <input type="submit" value="Submit" />
-    </form>
+    </form> -->
+    <hr>
+    <button id="button" type="button" onclick="startAnimation();">Start Animation</button>
     <br>
-    <button id="button" type="button" hidden="hidden" onclick="startAnimation();">Start Animation</button>
-    <br>
-    <br>
-    <canvas id="canvas" width="1400" height="700"></canvas>
-
+    <hr>
+    <canvas id="canvas" width="600" height="600"
+        style="border-style: groove; border-radius: 5px; border-color: aqua; margin-left: 450px; margin-right: auto;"></canvas>
+    <hr>
     <script src="index.js"></script>
 </body>
 
