@@ -36,9 +36,6 @@ function csvToArray(text) {
     return result;
 }
 
-// while (numbers.length == 0) {
-//     console.log("waiting");
-// }
 
 function startAnimation() {
     var canvas = document.getElementById('canvas'), context = canvas.getContext('2d');
