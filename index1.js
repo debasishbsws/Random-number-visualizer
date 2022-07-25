@@ -49,16 +49,25 @@ function startAnimation() {
     draw();
     function draw() {
 
-        for (let x = 0; x < 2000; x++) {
-            if (numbers[i++] < 0.5) {
+        for (let x = 0; x < 2000; x += 10) {
+            if (numbers[i] < 0.25) {
                 context.fillStyle = "black";
-                context.fillRect(x, y, 1, 1);
-            } else {
-                context.fillStyle = "white";
-                context.fillRect(x, y, 1, 1);
+                context.fillRect(x, y, 10, 10);
+            } else if (numbers[i] >= 0.25 && numbers[i] < 0.5) {
+                context.fillStyle = "blue";
+                context.fillRect(x, y, 10, 10);
             }
+            else if (numbers[i] >= 0.5 && numbers[i] < 0.75) {
+                context.fillStyle = "white";
+                context.fillRect(x, y, 10, 10);
+            }
+            else if (numbers[i] >= 0.75 && numbers[i] < 1) {
+                context.fillStyle = "red";
+                context.fillRect(x, y, 10, 10);
+            }
+            i++
         }
-        y++;
+        y += 10;
         if (y < 2000) {
             requestAnimationFrame(draw);
         }

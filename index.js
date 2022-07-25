@@ -167,8 +167,8 @@ async function startAnimation4D() {
     let ctx = canvas4D.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas4D.width, canvas4D.height);
-    let x = 2700;
-    let y = 1300;
+    let x = 400;
+    let y = 300;
 
     console.log("running");
 
@@ -176,24 +176,34 @@ async function startAnimation4D() {
 
     while (i < 1000000) {
         ctx.beginPath();
+        if (x >= canvas4D.width) {
+            x = 0;
+        } else if (x < 0) {
+            x = canvas4D.width;
+        }
+        if (y >= canvas4D.height) {
+            y = 0;
+        } else if (y < 0) {
+            y = canvas4D.height;
+        }
         ctx.moveTo(x, y);
 
         let n = numbers[i];
         if (n >= 0 && n <= 0.25) {
-            x += 5;
+            x += 20;
         } else if (n > 0.25 && n <= 0.5) {
-            y += 5;
+            y += 20;
         }
         else if (n > 0.5 && n <= 0.75) {
-            x -= 5;
+            x -= 20;
         }
         else if (n > 0.75 && n <= 1) {
-            y -= 5;
+            y -= 20;
         }
-        if (i % 10000 == 0) {
-            console.log(i);
-            await delay(5000);
-        }
+        // if (i % 10000 == 0) {
+        //     console.log(i);
+        // }
+        await delay(0);
 
         ctx.lineTo(x, y);
         ctx.stroke();
